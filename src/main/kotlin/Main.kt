@@ -1,3 +1,4 @@
+import utils.ScannerInput
 import java.lang.System.exit
 import java.util.*
 
@@ -5,10 +6,8 @@ fun main(args: Array<String>) {
     runMenu()
 }
 
-    val scanner = Scanner(System.`in`)
-
 fun mainMenu() : Int {
-    print(""" 
+    return ScannerInput.readNextInt(""" 
          > ----------------------------------
          > |        NOTE KEEPER APP         |
          > ----------------------------------
@@ -21,7 +20,6 @@ fun mainMenu() : Int {
          > |   0) Exit                      |
          > ----------------------------------
          > ==>> """.trimMargin(">"))
-    return scanner.nextInt()
 }
 
     fun runMenu() {

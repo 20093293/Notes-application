@@ -1,18 +1,24 @@
 import controllers.NoteAPI
 import models.Note
 import mu.KotlinLogging
+import persistence.JSONSerializer
+import persistence.Serializer
+import persistence.XMLSerializer
 import utils.ScannerInput
 import utils.ScannerInput.readNextInt
 import utils.ScannerInput.readNextLine
+import java.io.File
 import java.lang.System.exit
 import java.util.*
 
 private val logger = KotlinLogging.logger {}
 
+private val noteAPI = NoteAPI(XMLSerializer(File("notes.xml")))
+
+
 fun main(args: Array<String>) {
     runMenu()
 }
-private val noteAPI = NoteAPI()
 
 fun mainMenu() : Int {
     return ScannerInput.readNextInt(""" 
@@ -101,6 +107,23 @@ fun updateNote() {
         }
     }
 }
+
+fun save() {
+    try {
+        noteAPI.store()
+    } catch (e: Exception) {
+        System.err.println("Error writing to file: $e")
+    }
+}
+
+fun load() {
+    try {
+        noteAPI.load()
+    } catch (e: Exception) {
+        System.err.println("Error reading from file: $e")
+    }
+}
+
 
     fun exitApp(){
         println("Exiting...bye")

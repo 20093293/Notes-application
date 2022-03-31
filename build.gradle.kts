@@ -18,6 +18,9 @@ dependencies {
     implementation("io.github.microutils:kotlin-logging:2.1.21")
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
     implementation("org.slf4j:slf4j-simple:2.0.0-alpha6")
+    //For Streaming to XML and JSON
+    implementation("com.thoughtworks.xstream:xstream:1.4.18")
+    implementation("org.codehaus.jettison:jettison:1.4.1")
 }
 
 tasks.test {

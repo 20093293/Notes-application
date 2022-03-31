@@ -236,7 +236,7 @@ class NoteAPITest {
 
         @Test
         fun `saving and loading an loaded collection in XML doesn't loose data`() {
-            // Storing 3 notes to the notes.XML file.
+            // Storing 3 notes to the notes.XML file
             val storingNotes = NoteAPI(XMLSerializer(File("notes.xml")))
             storingNotes.add(testApp!!)
             storingNotes.add(swim!!)

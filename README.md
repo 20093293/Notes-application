@@ -9,6 +9,8 @@
 -  List by priority
 -  Save and Load
 -  XML & JSON storage
+-  Search functionality
+-  Added some LAMBDAS
 
 # imports
 - Kotlin-Logging
